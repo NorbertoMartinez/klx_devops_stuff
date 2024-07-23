@@ -1,0 +1,42 @@
+# 
+# 
+# 
+# Setup Ansible 
+#
+# KP: KeyPair
+# SG: Security Group
+
+# Make Ubuntu Instance  (Control)
+create KP (Control)
+create SG > MyIP
+
+# Make 3 centos9 Instance's (Web01, web02, db01)
+create KP (Client)
+create SG > MYIP
+create SG > control-SG
+
+
+
+# log in (Control)
+
+# Visit: https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu
+# You can install with pip or more OS
+
+# ** UPDATE OS REPOS **
+- sudo apt update
+
+# install repo for Ansible
+- sudo apt install software-properties-common -y
+- sudo add-apt-repository --yes --update ppa:ansible/ansible
+
+# Install Ansible
+- sudo apt install ansible -y
+
+# check ansible version 
+- ansible --version
+
+# Make directory of project (Eg.)
+# Eg. is based to directory HOME "~/"
+- mkdir projectName
+- cd projectName
+- mkdir exercise1 # To inventory and ping module 
